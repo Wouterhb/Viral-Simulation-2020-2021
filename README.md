@@ -10,7 +10,7 @@ The assignment is split up in two parts:
 
 ### _**A.**_ Generic assignment - Strategy Pattern
 
-Simulate social distancing by having 75% of all subjects in the simulation stand still. Do this by changing the code of the subjects so that the way in which subjects move is governed by a strategy, by implementing the strategy pattern. This is done to have one generic class Subject instead of multiple variants of subjects. Design the code according to the video given in the sources at the end of this document, so that it results in `RegularMovementStrategy` and  `LockdownMovementStrategy` classes which both implement a `MovementStrategy` interface.
+Simulate social distancing by having 75% of all subjects in the simulation stand still. Do this by changing the code of the subjects so that the way in which subjects move is governed by a strategy, by implementing the strategy pattern. This is done to have one generic class Subject instead of multiple variants of subjects. Design the code according to the video given in the sources at the end of this document, so that it results in `RegularMovementStrategy` and `LockdownMovementStrategy` classes which both implement a `MovementStrategy` interface.
 
 ### _**B.**_ Student number dependent assignment
 
@@ -24,7 +24,7 @@ Simulate a state of lockdown by imposing restrictions on subject movement once h
 
 Lockdowns impose restrictions which eventually have to be lifted. Sometimes this causes a second wave of infections. Simulate such a wave by having groups of subjects spread out over the simulated area where the subjects barely move. Code your simulation so that as time progresses, the subjects start to move more and more untill they move normally again.
 
-#### _**B.3**_ Getting better
+#### _**B.3**_ Getting better - THIS ONE FOR ME
 
 Simulate a situation in which subjects can get better again after a certain period of time and are then periodically immune to the virus. You are free to choose these durations yourself. Once a subject is not immune anymore, it can be infected again. Do this by adding the option of immunity to the subjects.
 
