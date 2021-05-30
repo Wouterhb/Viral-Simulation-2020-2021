@@ -73,6 +73,7 @@ namespace corsim
         }
 
         int numberInfected = 0;
+        int numberImmune = 0;
 
         for (Subject &subject : _subjects)
         {
@@ -85,13 +86,14 @@ namespace corsim
             }
             else if (subject.immune())
             {
+                numberImmune++;
                 subject.immuneDurationCountdown();
             }
         }
 
         if (counter % 30 == 0)
         {
-            _statisticsHandler.get()->communicate_number_infected(counter / 30, numberInfected);
+            _statisticsHandler.get()->communicate_number_infected(counter / 30, numberInfected, numberImmune);
         }
 
         draw_to_canvas();

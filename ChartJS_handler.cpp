@@ -20,23 +20,25 @@
 namespace corsim
 {
 
-ChartJSHandler::~ChartJSHandler(){}
+    ChartJSHandler::~ChartJSHandler() {}
 
-void ChartJSHandler::communicate_number_infected(int time, int infected)
-{
-    EM_ASM({
-            var config = window.myConfig;
-            var myLine = window.myLine;
-            if (config.data.datasets.length > 0) {
+    void ChartJSHandler::communicate_number_infected(int time, int infected, int immune)
+    {
+        EM_ASM(
+            {
+                var config = window.myConfig;
+                var myLine = window.myLine;
+                if (config.data.datasets.length > 0)
+                {
                     config.data.labels.push($0);
 
-                    config.data.datasets.forEach(function(dataset) {
-                        dataset.data.push($1);
-                    });
+                    config.data.datasets[0].data.push($1);
+                    config.data.datasets[1].data.push($2);
 
                     window.myLine.update();
                 }
-            },time,infected);
-}
+            },
+            time, infected, immune);
+    }
 
 }

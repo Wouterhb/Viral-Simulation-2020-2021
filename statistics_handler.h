@@ -19,15 +19,15 @@
 namespace corsim
 {
 
-/**
+    /**
  * The StatisticsHandler interface is a description of the way statistics from the
  * simulation can be communicated with code outside of the simulation.
  */
-class StatisticsHandler
-{
+    class StatisticsHandler
+    {
     public:
-    virtual ~StatisticsHandler(){};
-    virtual void communicate_number_infected(int time, int infected) = 0;
-};
+        virtual ~StatisticsHandler(){};
+        virtual void communicate_number_infected(int time, int infected, int immune) = 0;
+    };
 
 }

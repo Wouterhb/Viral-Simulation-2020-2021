@@ -21,15 +21,15 @@
 namespace corsim
 {
 
-/**
+    /**
  * This class communicated statistics with a predefined instance of ChartJS
  * insde the DOM of the browser and webpage.
  */
-class ChartJSHandler : public StatisticsHandler
-{
+    class ChartJSHandler : public StatisticsHandler
+    {
     public:
-    ~ChartJSHandler() override;
-    void communicate_number_infected(int time, int infected) override;
-};
+        ~ChartJSHandler() override;
+        void communicate_number_infected(int time, int infected, int immune) override;
+    };
 
 }
