@@ -19,13 +19,19 @@
 
 namespace corsim
 {
+    const int INFECTED_DURATION = 200;
+    const int IMMUNE_DURATION = 400;
 
     Subject::Subject(int x, int y, int radius, bool infected)
     {
         this->_x = x;
         this->_y = y;
         this->_radius = radius;
-        this->_infected = infected;
+
+        if (infected)
+        {
+            this->infect();
+        }
     }
 
     double Subject::x()
@@ -80,7 +86,42 @@ namespace corsim
 
     void Subject::infect()
     {
-        this->_infected = true;
+        if (!this->immune())
+        {
+            this->_infected = true;
+            this->_infectedDuration = INFECTED_DURATION;
+        }
+    }
+
+    void Subject::infectedDurationCountdown()
+    {
+        if (this->_infectedDuration > 0)
+        {
+            this->_infectedDuration--;
+        }
+        else if (this->infected())
+        {
+            this->_infected = false;
+            this->_immune = true;
+            this->_immuneDuration = IMMUNE_DURATION;
+        }
+    }
+
+    bool Subject::immune()
+    {
+        return this->_immune;
+    }
+
+    void Subject::immuneDurationCountdown()
+    {
+        if (this->_immuneDuration > 0)
+        {
+            this->_immuneDuration--;
+        }
+        else if (this->immune())
+        {
+            this->_immune = false;
+        }
     }
 
     double Subject::angle()

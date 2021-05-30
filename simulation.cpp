@@ -73,6 +73,7 @@ namespace corsim
         }
 
         int numberInfected = 0;
+        int numberImmune = 0;
 
         for (Subject &subject : _subjects)
         {
@@ -81,12 +82,18 @@ namespace corsim
             if (subject.infected())
             {
                 numberInfected++;
+                subject.infectedDurationCountdown();
+            }
+            else if (subject.immune())
+            {
+                numberImmune++;
+                subject.immuneDurationCountdown();
             }
         }
 
         if (counter % 30 == 0)
         {
-            _statisticsHandler.get()->communicate_number_infected(counter / 30, numberInfected);
+            _statisticsHandler.get()->communicate_number_infected(counter / 30, numberInfected, numberImmune);
         }
 
         draw_to_canvas();
@@ -107,6 +114,10 @@ namespace corsim
             if (subject.infected())
             {
                 color = RED;
+            }
+            else if (subject.immune())
+            {
+                color = GREEN;
             }
 
             _canvas.get()->draw_ellipse(subject.x(), subject.y(), subject.radius(), color);

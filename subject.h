@@ -39,6 +39,9 @@ namespace corsim
         void set_dy(double dy);
         bool infected();
         void infect();
+        void infectedDurationCountdown();
+        bool immune();
+        void immuneDurationCountdown();
         double angle();
         double speed();
         void setMovementStrategy(MovementStrategy *movementStrategy);
@@ -47,7 +50,8 @@ namespace corsim
     private:
         double _x = 0, _y = 0, _dx = 0, _dy = 0;
         bool _infected = false;
-        int _radius = 0;
+        bool _immune = false;
+        int _radius = 0, _infectedDuration = 0, _immuneDuration = 0;
         MovementStrategy *_movementStrategy;
     };
 };
