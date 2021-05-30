@@ -1,5 +1,6 @@
 #include "LockdownMovementStrategy.h"
 
-double LockdownMovementStrategy::execute() {
-    return 1;
+double LockdownMovementStrategy::movement(double point, double speed, double dt)
+{
+    return point;
 }

@@ -1,5 +1,6 @@
 #include "RegularMovementStrategy.h"
 
-double RegularMovementStrategy::execute() {
-    return 1;
+double RegularMovementStrategy::movement(double point, double speed, double dt)
+{
+    return point + speed * dt;
 }
