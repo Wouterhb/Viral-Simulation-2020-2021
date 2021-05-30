@@ -25,10 +25,10 @@
 #include <memory>
 
 // Constants to control the simulation
-const int SUBJECT_COUNT = 100;
+const int SUBJECT_COUNT = 200;
 const int SIM_WIDTH = 800;
 const int SIM_HEIGHT = 500;
-const int SUBJECT_RADIUS = 5;
+const int SUBJECT_RADIUS = 2;
 const float SOCIAL_DISTANCE_PERCENTAGE = 0.75; // Between 0 and 1
 
 // Initialize both strategies

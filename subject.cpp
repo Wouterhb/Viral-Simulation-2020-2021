@@ -99,7 +99,7 @@ namespace corsim
         {
             this->_infectedDuration--;
         }
-        else if (this->infected())
+        else
         {
             this->_infected = false;
             this->_immune = true;
@@ -118,7 +118,7 @@ namespace corsim
         {
             this->_immuneDuration--;
         }
-        else if (this->immune())
+        else
         {
             this->_immune = false;
         }
