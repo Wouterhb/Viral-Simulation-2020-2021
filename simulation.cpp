@@ -81,6 +81,11 @@ namespace corsim
             if (subject.infected())
             {
                 numberInfected++;
+                subject.infectedDurationCountdown();
+            }
+            else if (subject.immune())
+            {
+                subject.immuneDurationCountdown();
             }
         }
 
@@ -107,6 +112,10 @@ namespace corsim
             if (subject.infected())
             {
                 color = RED;
+            }
+            else if (subject.immune())
+            {
+                color = GREEN;
             }
 
             _canvas.get()->draw_ellipse(subject.x(), subject.y(), subject.radius(), color);
